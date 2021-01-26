@@ -26,7 +26,7 @@ public class CatAI : MonoBehaviour
     void FixedUpdate()
     {
         SearchForFood();
-        if (Vector3.Distance(Destination, transform.position) > .2f)
+        if (Vector3.Distance(Destination, transform.position) > .1f)
         {
             rb2d.MoveRotation(Quaternion.LookRotation(transform.position - Destination, Vector3.forward));
             rb2d.velocity = transform.up * CalculateSpeed() * Time.deltaTime;
