@@ -3,8 +3,9 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 /[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
+/CatWalk/[Ll]ibrary/
+/CatWalk/[Tt]emp/
+/CatWalk/[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
