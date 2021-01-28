@@ -10,18 +10,26 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] Slider goalSlider;
     [SerializeField] Transform catPosition;
     [SerializeField] Transform endDistance;
-    [SerializeField] GameObject WinGameScreen;
+    [SerializeField] GameObject EndGameScreen;
+    [SerializeField] TextMeshProUGUI Line1Text;
+    [SerializeField] TextMeshProUGUI Line2Text;
     [SerializeField] TextMeshProUGUI scoreText;
 
     public float TotalWeightGain = 0;
     public float TotalWeightLoss = 0;
 
+    public enum eEndStates
+    {
+        WIN,
+        STARVE,
+        OVERFED
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         goalSlider.maxValue = endDistance.position.y;
-        WinGameScreen.SetActive(false);
+        EndGameScreen.SetActive(false);
 
     }
 
@@ -29,19 +37,30 @@ public class LevelManager : Singleton<LevelManager>
     void Update()
     {
         goalSlider.value = catPosition.position.y;
-        if (catPosition.position.y >= endDistance.position.y) WinGame();
+        if (catPosition.position.y >= endDistance.position.y) EndGame(eEndStates.WIN);
+
     }
 
-    void WinGame()
+    public void EndGame(eEndStates endState)
     {
         Time.timeScale = 0;
         scoreText.text = TotalWeightGain.ToString("00.00") + "  -  " + TotalWeightLoss.ToString("00.00");
-        WinGameScreen.SetActive(true);
-    }
-
-    public void FailGame()
-    {
-
+        EndGameScreen.SetActive(true);
+        switch (endState)
+        {
+            case eEndStates.WIN:
+                Line1Text.text = "You did it!";
+                Line2Text.text = "But at what cost?";
+                break;
+            case eEndStates.STARVE:
+                Line1Text.text = "Oh No!";
+                Line2Text.text = "The cat starved to death...";
+                break;
+            case eEndStates.OVERFED:
+                Line1Text.text = "Oh No!";
+                Line2Text.text = "The cat was overfed...";
+                break;
+        }
     }
 
     public void ResetGame()

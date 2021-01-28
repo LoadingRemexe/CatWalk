@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de987abe7fd0c30439cb4e017e2e8ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droppedSprite: {fileID: -1189757417740773858, guid: 1b80be572a625ea4396ce9ac98e7be9f, type: 3}
-  isDropped: 0
   WeightValue: 1
+  FoodAmmount: 1
 --- !u!61 &4670007807646115092
 BoxCollider2D:
   m_ObjectHideFlags: 0
