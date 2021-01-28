@@ -59,7 +59,6 @@ public class FoodBowl : Singleton<FoodBowl>
             Destroy(heldFood);
             Instantiate(FoodPrefab, playerController.GetWorldPoint2D(), Quaternion.identity, null);
         }
-        AudioManager.Instance.PlaySFX(4);
         heldFood = null;
     }
 }

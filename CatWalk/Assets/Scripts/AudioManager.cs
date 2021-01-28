@@ -15,4 +15,9 @@ public class AudioManager : Singleton<AudioManager>
             SFXAudio.Play();
         }
     }
+
+    public void PlayRandomMeow()
+    {
+        PlaySFX(Random.Range(0, 3));
+    }
 }
