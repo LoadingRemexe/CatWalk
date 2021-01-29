@@ -11,7 +11,7 @@ public class FoodCleaner : MonoBehaviour
         {
             FoodBowl.Instance.AddFood(food.FoodAmmount);
             food.Remove();
-            
+            Debug.Log("Food Cleaned Up");
         }
     }
 }

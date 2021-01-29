@@ -65,6 +65,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void ResetGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
